@@ -1,0 +1,28 @@
+<html>
+    <body>
+    <script src="http://www.smhi.se/weatherCacheSMHI2/satellitbilder/msg_ovwpglobe.js">
+    </script>
+    <div id="bilder">
+    </div>
+    <script>
+        var hm=document.getElementById("bilder");
+        for(i in theImages){
+            var riktigaAdressen="http://".concat(theImages[i].getAttribute("src").substr(2));
+            theImages[i].setAttribute("src",riktigaAdressen);
+            var link=document.createElement("a");
+            link.text="lol";
+            link.onclick = function() {
+                //this.href=riktigaAdressen;
+                //this.href="data:image/jpeg;charset=utf-8," + encodeURIComponent(theImages[i].value);
+
+                // FIXME
+                this.href="data:image/jpeg;" + encodeURIComponent(theImages[i]);
+            }
+            hm.appendChild(link);
+            hm.appendChild(theImages[i]);
+        }
+    </script>
+
+
+    </body>
+</html>
