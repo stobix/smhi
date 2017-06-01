@@ -16,7 +16,7 @@
                 //this.href="data:image/jpeg;charset=utf-8," + encodeURIComponent(theImages[i].value);
 
                 // FIXME hackad!
-                this.href="data:image/jpeg;" + encodeURIComponent(theImages[i]);
+                this.href="data:image/jpeg;" + encodeURI(theImages[i].value);
             }
             hm.appendChild(link);
             hm.appendChild(theImages[i]);
