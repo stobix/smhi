@@ -1,4 +1,8 @@
 <html>
+	<head>
+	  <meta charset="UTF-8">
+	</head>
+
     <body>
     <script src="http://www.smhi.se/weatherCacheSMHI2/satellitbilder/msg_ovwpglobe.js">
     </script>
@@ -15,13 +19,60 @@
                 //this.href=riktigaAdressen;
                 //this.href="data:image/jpeg;charset=utf-8," + encodeURIComponent(theImages[i].value);
 
+
+                
+
                 // FIXME
+
                 this.href="data:image/jpeg;" + encodeURIComponent(theImages[i]);
             }
             hm.appendChild(link);
             hm.appendChild(theImages[i]);
         }
     </script>
+
+
+<script>
+	
+	// Försöker få till exemplet från https://stackoverflow.com/questions/11876175/how-to-get-a-file-or-blob-from-an-object-url
+
+
+	var xhr = new XMLHttpRequest();
+	//xhr.open('GET', 'blob:http%3A//your.blob.url.here', true);
+	var encoded = encodeURIComponent(theImages[0].getAttribute("src"));
+	//xhr.open('GET', 'blob:'.concat(encoded)); // http%3A//your.blob.url.here', true);
+	xhr.open('GET', 'blob:/msg_ovwpglobe___1705211400_k7v86.jpg',true);
+	xhr.responseType = 'blob';
+	xhr.onload = function(e) {
+		console.log(this);
+	  if (this.status == 200) {
+		myBlob = this.response;
+		// myBlob is now the blob that the object URL pointed to.
+	  }
+
+	};
+	xhr.onerror = function () {
+		console.log("oh noes");
+	}
+	xhr.send();
+
+</script>
+
+
+
+    <script>
+
+        var hej={};
+
+        (function(inarg){
+
+            inarg.a="a";
+
+        })(hej);
+
+    </script>
+
+
 
 
     </body>
